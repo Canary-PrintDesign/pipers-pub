@@ -24,13 +24,17 @@ set :relative_links, true
 activate :directory_indexes
 activate :aria_current
 
+activate :minify_css
+activate :minify_javascript
+activate :minify_html
+
 set :css_dir, 'assets/stylesheets'
 set :js_dir, 'assets/javascripts'
 set :images_dir, 'img'
 
 activate :s3_sync do |s3_sync|
-  s3_sync.bucket                     = 'www.pipers-pub.ca'
-  s3_sync.region                     = 'us-west-2'
+  s3_sync.bucket                     = 'pipers.canaryprint.ca'
+  s3_sync.region                     = 'ca-central-1'
   s3_sync.aws_access_key_id          = 'REDACTED: Use .s3_sync file with info in it'
   s3_sync.aws_secret_access_key      = 'REDACTED: Use .s3_sync file with info in it'
   s3_sync.delete                     = true
